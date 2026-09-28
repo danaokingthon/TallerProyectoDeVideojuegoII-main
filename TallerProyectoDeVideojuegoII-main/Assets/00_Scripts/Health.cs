@@ -35,6 +35,10 @@ public class Health : MonoBehaviour
             //animacion muerte
             //pantalla muerte
         }
+        else
+        {
+            ResetLevel();
+        }
     }
 
     public void Heal(int amount)

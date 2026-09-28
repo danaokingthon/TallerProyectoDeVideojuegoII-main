@@ -1376,7 +1376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fdf6a320ff84784990d25e17b615e1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Damage
-  damageAmount: 100
+  damageAmount: 10
 --- !u!212 &1335056667
 SpriteRenderer:
   serializedVersion: 2
@@ -1649,7 +1649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fdf6a320ff84784990d25e17b615e1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Damage
-  damageAmount: 100
+  damageAmount: 10
 --- !u!212 &1602497326
 SpriteRenderer:
   serializedVersion: 2
