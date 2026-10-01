@@ -28,6 +28,11 @@ public class Health : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void TakeDamage(int amount)
     {
         if (isDead)
