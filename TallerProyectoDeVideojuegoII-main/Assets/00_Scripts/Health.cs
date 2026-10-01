@@ -12,11 +12,20 @@ public class Health : MonoBehaviour
     private Rigidbody2D rb;
     private bool isDead = false;
 
+    [Header("Pantalla de derrota")]
+    public GameObject defeatCanvas;
+
     void Start()
     {
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody2D>();
         checkpointPosition = transform.position;
+
+        //ocultar pantalla de derrota
+        if (defeatCanvas != null)
+        {
+            defeatCanvas.SetActive(false);
+        }
     }
 
     public void TakeDamage(int amount)
@@ -30,14 +39,18 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            //muerte
             Die();
-            //animacion muerte
-            //pantalla muerte
+           
         }
         else
         {
-            ResetLevel();
+            //recibe daño pero sigue vivo, ultimo checkpoint
+            transform.position = checkpointPosition;
+
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector2.zero;
+            }
         }
     }
 
@@ -67,24 +80,37 @@ public class Health : MonoBehaviour
             rb.bodyType = RigidbodyType2D.Kinematic;
         }
 
-        //esperar un segundo
-        Invoke(nameof(ResetLevel),0.1f);
+        //pantalla de derrota
+        if (defeatCanvas != null)
+        {
+            defeatCanvas.SetActive(true);
+        }
     }
-    private void ResetLevel()
+
+    public void RestartFromCheckpoint()
     {
         transform.position = checkpointPosition;
+
         currentHealth = maxHealth;
         isDead = false;
-        if (rb != null)
+
+        if (rb!= null)
         {
             rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.linearVelocity = Vector2.zero;
         }
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        //ocultar pantalla de derrota
+        if (defeatCanvas != null)
+        {
+            defeatCanvas.SetActive(false);
+        }
     }
 
     public void SetCheckpoint(Vector3 position)
     {
         checkpointPosition = position;
+
     }
 
 }
