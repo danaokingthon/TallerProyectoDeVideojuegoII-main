@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuButton : MonoBehaviour
 {
-    public string menuSceneName = "Menu";
+    public string menuSceneName = "MENU";
 
     public void GoToMenu()
     {

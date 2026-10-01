@@ -1571,8 +1571,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 100
-  currentHealth: 0
-  defeatCanvas: {fileID: 0}
+  currentHealth: 100
+  defeatCanvas: {fileID: 1194154905}
 --- !u!1 &1147721623
 GameObject:
   m_ObjectHideFlags: 0

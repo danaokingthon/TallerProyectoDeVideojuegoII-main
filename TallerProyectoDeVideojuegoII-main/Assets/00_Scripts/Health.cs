@@ -85,6 +85,8 @@ public class Health : MonoBehaviour
         {
             defeatCanvas.SetActive(true);
         }
+
+        Time.timeScale = 0f;
     }
 
     public void RestartFromCheckpoint()
