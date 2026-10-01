@@ -10,13 +10,22 @@ public class Healthbar : MonoBehaviour
     {
         slider = GetComponent<Slider>();
 
-        slider.maxValue = playerHealth.maxHealth;
-        slider.value = playerHealth.currentHealth;
+        if (playerHealth != null)
+        {
+            slider.minValue = 0;
+            slider.maxValue = playerHealth.maxHealth;
+            slider.value = playerHealth.currentHealth;
+        }
+        
 
     }
 
     void Update()
     {
-        slider.value = playerHealth.currentHealth;
+        if (playerHealth != null)
+        {
+            slider.value = playerHealth.currentHealth;
+        }
+        
     }
 }
